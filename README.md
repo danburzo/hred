@@ -1,1 +1,45 @@
 # hred
+
+`hred` (Html REDuce) is a command-line tool that takes HTML from `stdin` and outputs JSON on `stdout`, based on a [`qsx` query](https://github.com/danburzo/qsx).
+
+You can install it from the npm registry:
+
+```bash
+# with npm
+npm install -g hred
+
+# with yarn
+yarn global add hred
+```
+
+...or run it directly with `npx`:
+
+```bash
+npx hred 
+```
+
+`hred` accepts a `qsx` query as its single argument:
+
+```bash
+curl https://en.wikipedia.org/wiki/Banana | hred "img { @alt, @src }"
+
+[
+  {
+    "alt": "Page semi-protected",
+    "src": "//upload.wikimedia.org/wikipedia/en/thumb/1/1b/Semi-protection-shackle.svg/20px-Semi-protection-shackle.svg.png"
+  },
+  {
+    "alt": "Banana and cross section.jpg",
+    "src": "//upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Banana_and_cross_section.jpg/250px-Banana_and_cross_section.jpg"
+  },
+  ...
+]
+```
+
+[Read the `qsx` documentation](https://github.com/danburzo/qsx)
+
+`hred` has a single purpose: to extract parts of a HTML file as JSON. Because the query language extends the `Element.querySelectorAll()` DOM method, `hred` can offer only limited reshaping of the resulting JSON without becoming a complicated DSL (domain-specific language). It is designed to be piped further along to something like [`jq`](https://stedolan.github.io/jq/) for further processing.
+
+Related tools:
+
+* [pup](https://github.com/ericchiang/pup/)
