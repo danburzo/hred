@@ -432,10 +432,10 @@ qs@~6.5.2:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
   integrity sha512-N5ZAX4/LxJmF+7wN74pUD6qAh9/wnvdQcjq9TZjevvXzSUo7bfmw91saqMjzGS2xq91/odN2dW/WOl7qQHNDGA==
 
-qsx@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/qsx/-/qsx-2.0.0.tgz#ab7bdb57adabe468a0aee8fcdb0ca1cfdeeb2d1e"
-  integrity sha512-Uj9555bw6MXCEp+GVsLE0ehLoNbo9zkKIVDg40i5ENM+nfAmJ33r1YDsSlDT3NqMKe3nhJEMTMQsvrXP4t/JGg==
+qsx@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/qsx/-/qsx-3.0.0.tgz#3f51c67b283550e18820d271d67ecccb43a39c29"
+  integrity sha512-K624qJT7UugTzGxFkcM6c/iipEjWrvZeOsG4GwUCeKP4D0Dm7rWEkAT0hYVXq85fvmK7fCEK2SvrE4wgrB9+tg==
   dependencies:
     symbol-tree "^3.2.4"
 
