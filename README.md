@@ -47,6 +47,10 @@ curl https://en.wikipedia.org/wiki/Banana | hred "img { @alt, @src }"
 
 `hred` has a single purpose: to extract parts of a HTML file as JSON. Because the query language extends the `Element.querySelectorAll()` DOM method, `hred` can offer only limited reshaping of the resulting JSON without becoming a complicated DSL (domain-specific language). It is designed to be piped further along to something like [`jq`](https://stedolan.github.io/jq/) for further processing.
 
-Related tools:
+## Related projects
 
-* [pup](https://github.com/ericchiang/pup/)
+You might be interested in these:
+
+* [pup](https://github.com/ericchiang/pup/) was the original _`jq` for HTML_;
+* [x-ray](https://github.com/matthewmueller/x-ray) has the concept of including HTML attributes in the query string; 
+* [gdom](https://github.com/syrusakbary/gdom) — `qsx` looks a bit like GraphQL, so maybe GraphQL for DOM can be a thing
