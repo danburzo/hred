@@ -1,13 +1,13 @@
 {
   "name": "hred",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "main": "index.js",
   "repository": "git@github.com:danburzo/hred.git",
   "author": "Dan Burzo <dan@danburzo.ro>",
   "license": "MIT",
   "dependencies": {
     "jsdom": "^16.3.0",
-    "qsx": "^3.1.0"
+    "qsx": "^3.1.1"
   },
   "bin": {
     "hred": "./cli.js"
