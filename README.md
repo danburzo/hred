@@ -18,7 +18,9 @@ yarn global add hred
 npx hred 
 ```
 
-`hred` accepts a `qsx` query as its single argument:
+## Usage
+
+`hred` accepts a `qsx` query string:
 
 ```bash
 curl https://en.wikipedia.org/wiki/Banana | hred "img { @alt, @src }"
@@ -37,6 +39,11 @@ curl https://en.wikipedia.org/wiki/Banana | hred "img { @alt, @src }"
 ```
 
 [Read the `qsx` documentation](https://github.com/danburzo/qsx)
+
+## Options
+
+* `-c` — Return the JSON array as [concatenated records](https://en.wikipedia.org/wiki/JSON_streaming#Concatenated_JSON), to make it easier to collate several results together;
+* `-r` — Return raw (unquoted) strings.
 
 `hred` has a single purpose: to extract parts of a HTML file as JSON. Because the query language extends the `Element.querySelectorAll()` DOM method, `hred` can offer only limited reshaping of the resulting JSON without becoming a complicated DSL (domain-specific language). It is designed to be piped further along to something like [`jq`](https://stedolan.github.io/jq/) for further processing.
 
