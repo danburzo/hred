@@ -1,8 +1,10 @@
 # hred
 
-`hred` (Html REDuce) is a command-line tool that takes HTML from `stdin` and outputs JSON on `stdout`, based on a [`qsx` query](https://github.com/danburzo/qsx).
+`hred` (Html REDuce) is a command-line tool that takes HTML from `stdin` and outputs JSON on `stdout`, based on a [`qsx` query](https://github.com/danburzo/qsx). 
 
-You can install it from the npm registry:
+## Installation
+
+You'll need to have Node.js and npm on your machine. You can install `hred` from the npm registry:
 
 ```bash
 # with npm
@@ -46,6 +48,10 @@ curl https://en.wikipedia.org/wiki/Banana | hred "img { @alt, @src }"
 * `-r` — Return raw (unquoted) strings.
 
 `hred` has a single purpose: to extract parts of a HTML file as JSON. Because the query language extends the `Element.querySelectorAll()` DOM method, `hred` can offer only limited reshaping of the resulting JSON without becoming a complicated DSL (domain-specific language). It is designed to be piped further along to something like [`jq`](https://stedolan.github.io/jq/) for further processing.
+
+## A note on security
+
+`hred` uses [`jsdom`](https://github.com/jsdom/jsdom) as the DOM provider. Although it is used for the sole purpose of parsing the HTML and querying the resulting DOM, and [script execution is disabled by default](https://github.com/jsdom/jsdom#executing-scripts), it's always a good idea to exercise some caution when feeding untrusted HTML from the world wide web into `hred`, just in case.
 
 ## Related projects
 
