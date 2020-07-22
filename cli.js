@@ -24,12 +24,12 @@ Usage: hred [options...]
 
 Options:
 
-	-h, --help	Print help
-	-V, --version	Print program version
+-h, --help             Print this help message
+-V, --version          Print hred version
 
-	-c, --concat	Output array as concatenated JSON records
-	-r, --raw	Output raw (unquoted) strings
-	-u, --url	Specify base URL for relative HTML attributes
+-c, --concat           Output array as concatenated JSON records
+-r, --raw              Output raw (unquoted) strings
+-u <url>, --url=<url>  Specify base URL for relative HTML attributes
 `);
 	process.exit(0);
 }
