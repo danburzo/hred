@@ -1,20 +1,38 @@
 #!/usr/bin/env node
+let minimist = require('minimist');
 let hred = require('./index.js');
+let pkg = require('./package.json');
+
 let { stdin, stdout } = process;
+let opts = minimist(process.argv.slice(2));
+
 let content = '';
 
-let args = process.argv.slice(2);
+if (opts.version || opts.V) {
+	console.log(pkg.version);
+	process.exit(0);
+}
 
-let opts = {}, query;
+if (opts.help || opts.h) {
+	console.log(
+`hred version ${pkg.version}
 
-args.forEach(arg => {
-	if (arg.match(/^-[^-]/)) {
-		let flags = arg.replace(/-/g, '').split('');
-		flags.forEach(f => opts[f] = true);
-	} else if (query == undefined) {
-		query = arg;
-	}
-});
+Reduce HTML to JSON from the command line.
+Details at: https://github.com/danburzo/hred
+
+Usage: hred [options...]
+
+Options:
+
+	-h, --help	Print help
+	-V, --version	Print program version
+
+	-c, --concat	Output array as concatenated JSON records
+	-r, --raw	Output raw (unquoted) strings
+	-u, --url	Specify base URL for relative HTML attributes
+`);
+	process.exit(0);
+}
 
 stdin
 	.setEncoding('utf8')
@@ -24,10 +42,10 @@ stdin
 			content += chunk;
 		}
 	}).on('end', () => {
-		let res = hred(content, query), out;
-		if (opts.c && Array.isArray(res)) {
+		let res = hred(content, opts._[0] || '^', opts.url || opts.u), out;
+		if ((opts.concat || opts.c) && Array.isArray(res)) {
 			out = res.map(it => {
-				if (opts.r && typeof it === 'string') {
+				if ((opts.raw || opts.r) && typeof it === 'string') {
 					return it;
 				}
 				return JSON.stringify(it, null, 2);

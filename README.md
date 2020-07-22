@@ -54,8 +54,11 @@ hred has the single, modest purpose of extracting parts of HTML as JSON. Because
 
 hred has a few options available:
 
-* `-c`: if the result is an array, return it as [concatenated JSON records](https://en.wikipedia.org/wiki/JSON_streaming#Concatenated_JSON), to make it easier to collate several results together;
-* `-r`: a complement to `-c` that returns raw (unquoted) strings when the result is an array of strings.
+* `-c, --concat`: if the result is an array, return it as [concatenated JSON records](https://en.wikipedia.org/wiki/JSON_streaming#Concatenated_JSON), to make it easier to collate several results together;
+* `-h, --help`: list help;
+* `-r, --raw`: a complement to `-c` that returns raw (unquoted) strings when the result is an array of strings;
+* `-u url, --url=<url>`: add the base URL against which the HTML should be evaluated; influences the value of the DOM properties `@.href`, `@.src` when the HTML attributes are relative;
+* `-V, --version`: display the current version.
 
 ## A real-life example
 
