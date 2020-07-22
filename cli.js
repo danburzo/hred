@@ -30,6 +30,24 @@ Options:
 -c, --concat           Output array as concatenated JSON records
 -r, --raw              Output raw (unquoted) strings
 -u <url>, --url=<url>  Specify base URL for relative HTML attributes
+
+Examples:
+
+Get the "alt" and "src" HTML attributes of images on a Wikipedia page:
+	
+	curl https://en.wikipedia.org/wiki/Banana | hred "img { @alt, @src }"
+
+Read the titles and definitions of HTTP response codes from a MDN page:
+
+	curl https://developer.mozilla.org/en-US/docs/Web/HTTP/Status | hred "
+		dt { 
+			a { 
+				@href, 
+				^ :scope > code @.textContent >> title
+			} >> .,
+			:scope + dd @.textContent
+		}
+	"
 `);
 	process.exit(0);
 }
