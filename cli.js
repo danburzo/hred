@@ -87,7 +87,7 @@ stdin
 				return JSON.stringify(it, null, 2);
 			}).join('\n');
 		} else {
-			out = JSON.stringify(res, null, 2);
+			out = (opts.raw || opts.r) && typeof res === 'string' ? res : JSON.stringify(res, null, 2);
 		}
 		stdout.write(out);
 	});
