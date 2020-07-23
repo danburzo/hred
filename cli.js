@@ -1,12 +1,29 @@
 #!/usr/bin/env node
-let minimist = require('minimist');
+let opsh = require('opsh');
 let hred = require('./index.js');
 let pkg = require('./package.json');
 
 let { stdin, stdout } = process;
-let opts = minimist(process.argv.slice(2));
 
-let content = '';
+// Set of options accepting an argument
+let accepts_optarg = new Set(['u', 'url']);
+
+// Accumulate options and their arguments on the one hand,
+// and operands, on the other
+let opts = {}; 
+let operands = [];
+opsh(process.argv.slice(2), {
+	option(option, value) {
+		opts[option] = value !== undefined ? option : true;
+	},
+	operand(operand, opt) {
+		if (opt !== undefined && accepts_optarg.has(opt)) {
+			opts[opt] = operand;
+		} else {
+			operands.push(operand);
+		}
+	}
+});
 
 if (opts.version || opts.V) {
 	console.log(pkg.version);
@@ -52,6 +69,7 @@ Read the titles and definitions of HTTP response codes from a MDN page:
 	process.exit(0);
 }
 
+let content = '';
 stdin
 	.setEncoding('utf8')
 	.on('readable', () => {
@@ -60,7 +78,7 @@ stdin
 			content += chunk;
 		}
 	}).on('end', () => {
-		let res = hred(content, opts._[0] || '^', opts.url || opts.u), out;
+		let res = hred(content, operands[0] || '^', opts.url || opts.u), out;
 		if ((opts.concat || opts.c) && Array.isArray(res)) {
 			out = res.map(it => {
 				if ((opts.raw || opts.r) && typeof it === 'string') {

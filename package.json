@@ -7,7 +7,7 @@
   "license": "MIT",
   "dependencies": {
     "jsdom": "^16.3.0",
-    "minimist": "^1.2.5",
+    "opsh": "^0.0.1",
     "qsx": "^3.1.1"
   },
   "bin": {
