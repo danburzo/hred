@@ -44,6 +44,7 @@ Options:
 -h, --help             Print this help message
 -V, --version          Print hred version
 
+-x, --xml              Parse input as XML rather than HTML
 -c, --concat           Output array as concatenated JSON records
 -r, --raw              Output raw (unquoted) strings
 -u <url>, --url=<url>  Specify base URL for relative HTML attributes
@@ -78,7 +79,7 @@ stdin
 			content += chunk;
 		}
 	}).on('end', () => {
-		let res = hred(content, operands[0] || '^', opts.url || opts.u), out;
+		let res = hred(content, operands[0] || '^', opts.url || opts.u, (opts.x || opts.xml) ? 'application/xml' : 'text/html'), out;
 		if ((opts.concat || opts.c) && Array.isArray(res)) {
 			out = res.map(it => {
 				if ((opts.raw || opts.r) && typeof it === 'string') {
