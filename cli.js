@@ -34,20 +34,25 @@ if (opts.help || opts.h) {
 	console.log(
 `hred version ${pkg.version}
 
-Reduce HTML to JSON from the command line.
+Reduce HTML (and XML) to JSON from the command line.
 Details at: https://github.com/danburzo/hred
 
 Usage: hred [options...]
 
-Options:
+General options:
 
 -h, --help             Print this help message
 -V, --version          Print hred version
 
+Input options:
+
+-u <url>, --url=<url>  Specify base URL for relative HTML attributes
 -x, --xml              Parse input as XML rather than HTML
+
+Output options:
+
 -c, --concat           Output array as concatenated JSON records
 -r, --raw              Output raw (unquoted) strings
--u <url>, --url=<url>  Specify base URL for relative HTML attributes
 
 Examples:
 
