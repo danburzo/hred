@@ -70,11 +70,11 @@ Let's take a web page that uses atomic, presentational CSS rather than semantic 
 ```bash
 curl https://github.com/danburzo\?tab\=stars | hred "
 .mb-1 {
-	h3 a { 
-		@href >> url , 
-		@.textContent >> title 
-	} >> ., 
-	^ :scope ~ .py-1 @.textContent >> description 
+	h3 a ...{ 
+		@href => url , 
+		@.textContent => title 
+	}, 
+	^ :scope ~ .py-1 @.textContent => description 
 }"
 ```
 
