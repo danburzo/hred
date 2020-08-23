@@ -6,8 +6,8 @@
   "author": "Dan Burzo <dan@danburzo.ro>",
   "license": "MIT",
   "dependencies": {
-    "jsdom": "^16.3.0",
-    "opsh": "^0.1.0",
+    "jsdom": "^16.4.0",
+    "opsh": "^0.1.1",
     "qsx": "^3.2.0"
   },
   "bin": {

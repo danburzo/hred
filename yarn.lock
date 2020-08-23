@@ -293,10 +293,10 @@ jsbn@~0.1.0:
   resolved "https://registry.yarnpkg.com/jsbn/-/jsbn-0.1.1.tgz#a5e654c2e5a2deb5f201d96cefbca80c0ef2f513"
   integrity sha1-peZUwuWi3rXyAdls77yoDA7y9RM=
 
-jsdom@^16.3.0:
-  version "16.3.0"
-  resolved "https://registry.yarnpkg.com/jsdom/-/jsdom-16.3.0.tgz#75690b7dac36c67be49c336dcd7219bbbed0810c"
-  integrity sha512-zggeX5UuEknpdZzv15+MS1dPYG0J/TftiiNunOeNxSl3qr8Z6cIlQpN0IdJa44z9aFxZRIVqRncvEhQ7X5DtZg==
+jsdom@^16.4.0:
+  version "16.4.0"
+  resolved "https://registry.yarnpkg.com/jsdom/-/jsdom-16.4.0.tgz#36005bde2d136f73eee1a830c6d45e55408edddb"
+  integrity sha512-lYMm3wYdgPhrl7pDcRmvzPhhrGVBeVhPIqeHjzeiHN3DFmD1RBpbExbi8vU7BJdH8VAZYovR8DMt0PNNDM7k8w==
   dependencies:
     abab "^2.0.3"
     acorn "^7.1.1"
@@ -390,10 +390,10 @@ oauth-sign@~0.9.0:
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.9.0.tgz#47a7b016baa68b5fa0ecf3dee08a85c679ac6455"
   integrity sha512-fexhUFFPTGV8ybAtSIGbV6gOkSv8UtRbDBnAyLQw4QPKkgNlsH2ByPGtMUqdWkos6YCRmAqViwgZrJc/mRDzZQ==
 
-opsh@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/opsh/-/opsh-0.1.0.tgz#85e8ec110a2d2fe2c70524fe133a173dde818444"
-  integrity sha512-nvHp4IIc+3vKdWopsXbp1QoxtSYycqBXRYreb6NmW3qoPF6esYsGSsqSVwanSzG2KnbJdODgvVt43L9o17gIyw==
+opsh@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/opsh/-/opsh-0.1.1.tgz#87e3cd9f6d17000e11148950e29aff0608fce4fe"
+  integrity sha512-QgY/o2PTLXH1tmitBnz+dmzq4jwSOi5hd1QZoPNCI/8xgYcB5OaC+Zf8Cn4Pn9qtmzQb0CKYaYqwB7Be9XgEnA==
 
 optionator@^0.8.1:
   version "0.8.3"
