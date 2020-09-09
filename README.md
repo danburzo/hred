@@ -1,13 +1,23 @@
-# hred
+# ![hred](./.github/hred.svg)
 
-hred (**h**tml **red**uce) is a command-line tool to extract data from HTML. It reads HTML from stdin and outputs to stdout the JSON produced by a [qsx query](https://github.com/danburzo/qsx):
+<a href="https://www.npmjs.org/package/hred"><img src="https://img.shields.io/npm/v/hred.svg?style=flat-square&labelColor=CC9252&color=black" alt="npm version"></a>
+
+hred (**h**tml **red**uce) is a command-line tool to extract data from HTML. It reads HTML from the standard input and outputs the JSON produced by a [qsx query](https://github.com/danburzo/qsx):
 
 ```bash
-> curl http://danburzo.ro | hred "li a { @href, @.textContent }"
+> curl http://danburzo.ro/rolodex/ | hred "article a { @href, @.textContent }"
 [
   {
-    "href": ".",
-    ".textContent": "Dan Burzo"
+    "href": "http://www.3quarksdaily.com/",
+    ".textContent": "3 Quarks Daily"
+  },
+  {
+    "href": "http://50watts.com",
+    ".textContent": "50 Watts"
+  },
+  {
+    "href": "http://aworkinglibrary.com/",
+    ".textContent": "A Working Library"
   },
   ...
 ]
