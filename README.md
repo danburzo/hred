@@ -1,11 +1,11 @@
-# ![hred](./.github/hred.svg)
+![hred](./.github/hred.svg)
 
 <a href="https://www.npmjs.org/package/hred"><img src="https://img.shields.io/npm/v/hred.svg?style=flat-square&labelColor=CC9252&color=black" alt="npm version"></a>
 
 hred (**h**tml **red**uce) is a command-line tool to extract data from HTML. It reads HTML from the standard input and outputs the JSON produced by a [qsx query](https://github.com/danburzo/qsx):
 
 ```bash
-> curl http://danburzo.ro/rolodex/ | hred "article a { @href, @.textContent }"
+> curl https://danburzo.ro/rolodex/ | hred "article a { @href, @.textContent }"
 [
   {
     "href": "http://www.3quarksdaily.com/",
@@ -110,7 +110,7 @@ The resulting JSON, abridged:
 
 ## A note on security
 
-hred uses [jsdom](https://github.com/jsdom/jsdom) as the DOM provider. Although it is used for the sole purpose of parsing the HTML and querying the resulting DOM, and [script execution is disabled by default](https://github.com/jsdom/jsdom#executing-scripts), it's always a good idea to be mindful when feeding untrusted HTML from the world wide web into hred.
+hred uses as its DOM environment the excellent [jsdom](https://github.com/jsdom/jsdom), which is more than a passive DOM parser: one of its distinguishing features is its ability to run scripts. Due to potential negative consequences that unverified web pages may produce, [script execution is disabled](https://github.com/jsdom/jsdom#executing-scripts).
 
 ## Related projects
 
