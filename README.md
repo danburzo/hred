@@ -1,11 +1,11 @@
-# ![hred](./.github/hred.svg)
+![hred](./.github/hred.svg)
 
 <a href="https://www.npmjs.org/package/hred"><img src="https://img.shields.io/npm/v/hred.svg?style=flat-square&labelColor=CC9252&color=black" alt="npm version"></a>
 
 hred (**h**tml **red**uce) is a command-line tool to extract data from HTML. It reads HTML from the standard input and outputs the JSON produced by a [qsx query](https://github.com/danburzo/qsx):
 
 ```bash
-> curl http://danburzo.ro/rolodex/ | hred "article a { @href, @.textContent }"
+> curl https://danburzo.ro/rolodex/ | hred "article a { @href, @.textContent }"
 [
   {
     "href": "http://www.3quarksdaily.com/",
@@ -110,7 +110,7 @@ The resulting JSON, abridged:
 
 ## A note on security
 
-hred uses [jsdom](https://github.com/jsdom/jsdom) as the DOM provider. Although it is used for the sole purpose of parsing the HTML and querying the resulting DOM, and [script execution is disabled by default](https://github.com/jsdom/jsdom#executing-scripts), it's always a good idea to be mindful when feeding untrusted HTML from the world wide web into hred.
+hred uses as its DOM environment [jsdom](https://github.com/jsdom/jsdom), which has the ability to run the JavaScript included in web pages. Because scripts specially crafted to attack jsdom may potentially evade the sandbox to which their execution is confined and access your machine through Node.js APIs, [script execution is disabled](https://github.com/jsdom/jsdom#executing-scripts); furthermore, external resources (scripts, images, stylesheets, iframes) are not fetched. Even with these precautions, be careful with what web pages you process with hred; when in doubt, inspect the page's source code beforehand.
 
 ## Related projects
 
@@ -118,5 +118,6 @@ You might be interested in these:
 
 * [pup](https://github.com/ericchiang/pup/) was the original _`jq` for HTML_;
 * [x-ray](https://github.com/matthewmueller/x-ray) has the concept of including HTML attributes in the query string; 
-* [gdom](https://github.com/syrusakbary/gdom) — `qsx` looks a bit like GraphQL, so maybe GraphQL for DOM can be a thing
-* [tq](https://github.com/plainas/tq) — another popular CLI tool for extracting data from HTML
+* [gdom](https://github.com/syrusakbary/gdom) — `qsx` looks a bit like GraphQL, so maybe GraphQL for DOM can be a thing;
+* [tq](https://github.com/plainas/tq) — another popular CLI tool for extracting data from HTML;
+* [dbohdan/structured-text-tools](https://github.com/dbohdan/structured-text-tools/) maintains a comprehensive list of command-line tools for manipulating structured text data.
