@@ -118,5 +118,6 @@ You might be interested in these:
 
 * [pup](https://github.com/ericchiang/pup/) was the original _`jq` for HTML_;
 * [x-ray](https://github.com/matthewmueller/x-ray) has the concept of including HTML attributes in the query string; 
-* [gdom](https://github.com/syrusakbary/gdom) — `qsx` looks a bit like GraphQL, so maybe GraphQL for DOM can be a thing
-* [tq](https://github.com/plainas/tq) — another popular CLI tool for extracting data from HTML
+* [gdom](https://github.com/syrusakbary/gdom) — `qsx` looks a bit like GraphQL, so maybe GraphQL for DOM can be a thing;
+* [tq](https://github.com/plainas/tq) — another popular CLI tool for extracting data from HTML;
+* [dbohdan/structured-text-tools](https://github.com/dbohdan/structured-text-tools/) maintains a comprehensive list of command-line tools for manipulating structured text data.
