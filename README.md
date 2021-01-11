@@ -110,7 +110,7 @@ The resulting JSON, abridged:
 
 ## A note on security
 
-hred uses as its DOM environment the excellent [jsdom](https://github.com/jsdom/jsdom), which is more than a passive DOM parser: one of its distinguishing features is its ability to run scripts. Due to potential negative consequences that unverified web pages may produce, [script execution is disabled](https://github.com/jsdom/jsdom#executing-scripts).
+hred uses as its DOM environment [jsdom](https://github.com/jsdom/jsdom), which has the ability to run the JavaScript included in web pages. Because scripts specially crafted to attack jsdom may potentially evade the sandbox to which their execution is confined and access your machine through Node.js APIs, [script execution is disabled](https://github.com/jsdom/jsdom#executing-scripts); furthermore, external resources (scripts, images, stylesheets, iframes) are not fetched. Even with these precautions, be careful with what web pages you process with hred; when in doubt, inspect the page's source code beforehand.
 
 ## Related projects
 
