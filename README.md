@@ -120,5 +120,7 @@ You might be interested in these:
 * [x-ray](https://github.com/matthewmueller/x-ray) has the concept of including HTML attributes in the query string; 
 * [gdom](https://github.com/syrusakbary/gdom) — `qsx` looks a bit like GraphQL, so maybe GraphQL for DOM can be a thing;
 * [tq](https://github.com/plainas/tq) — another popular CLI tool for extracting data from HTML;
+* [htmlq](https://github.com/mgdm/htmlq) — like `jq`, but for HTML;
+* [xidel](https://github.com/benibela/xidel) supports a variety of query languages (CSS, XQuery, XPath, etc.);
 * [wikipedia_ql](https://github.com/zverok/wikipedia_ql) — a query language for efficient data extraction from Wikipedia;
 * [dbohdan/structured-text-tools](https://github.com/dbohdan/structured-text-tools/) maintains a comprehensive list of command-line tools for manipulating structured text data.
