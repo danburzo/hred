@@ -7,7 +7,7 @@ let fs = require('fs');
 let { stdin, stdout } = process;
 
 // Set of options accepting an argument
-let accepts_optarg = new Set(['u', 'url', 'f', 'from']);
+let accepts_optarg = new Set(['u', 'url', 'f', 'file']);
 
 // Accumulate options and their arguments on the one hand,
 // and operands, on the other
@@ -49,7 +49,7 @@ Input options:
 
 -u <url>, --url=<url>     Specify base URL for relative HTML attributes
 -x, --xml                 Parse input as XML rather than HTML
--f <file>, --from=<file>  Read the query from an external file instead of
+-f <file>, --file=<file>  Read the query from an external file instead of
                           passing it as an operand.
 
 Output options:
@@ -78,7 +78,7 @@ Read the titles and definitions of HTTP response codes from a MDN page:
 	process.exit(0);
 }
 
-let query = opts.f || opts.from ? fs.readFileSync(opts.f || opts.from, 'utf8') : operands[0];
+let query = opts.f || opts.file ? fs.readFileSync(opts.f || opts.file, 'utf8') : operands[0];
 
 let content = '';
 
