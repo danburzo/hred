@@ -30,13 +30,13 @@ hred (**h**tml **red**uce) is a command-line tool to extract data from HTML. It 
 hred runs on Node.js. You can find hred in the npm registry:
 
 ```bash
-# install globally with npm:
+# install hred globally with npm:
 npm install -g hred
 
-# install globally with yarn:
+# install hred globally with yarn:
 yarn global add hred
 
-# run it without installing:
+# run hred without installing it:
 npx hred 
 ```
 
@@ -67,6 +67,7 @@ hred has a few options available:
 Option | Description
 ------ | -----------
 `-c`, `--concat` | if the result is an array, return it as [concatenated JSON records](https://en.wikipedia.org/wiki/JSON_streaming#Concatenated_JSON), to make it easier to collate several results together
+`-f <queryfile>`, `--file=<queryfile>` | read the query from an external file instead of passing it as an operand
 `-h`, `--help` | print help message
 `-r`, `--raw` | a complement to `-c` that returns raw (unquoted) strings when the result is an array of strings
 `-u <url>`, `--url=<url>` | add the base URL against which the HTML should be evaluated; influences the value of the DOM properties `@.href`, `@.src` when the HTML attributes are relative
