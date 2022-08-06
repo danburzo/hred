@@ -67,6 +67,7 @@ hred has a few options available:
 Option | Description
 ------ | -----------
 `-c`, `--concat` | if the result is an array, return it as [concatenated JSON records](https://en.wikipedia.org/wiki/JSON_streaming#Concatenated_JSON), to make it easier to collate several results together
+`-f <file>`, `--from=<file>` | read the query from an external file instead of passing it as an operand
 `-h`, `--help` | print help message
 `-r`, `--raw` | a complement to `-c` that returns raw (unquoted) strings when the result is an array of strings
 `-u <url>`, `--url=<url>` | add the base URL against which the HTML should be evaluated; influences the value of the DOM properties `@.href`, `@.src` when the HTML attributes are relative

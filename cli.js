@@ -2,11 +2,12 @@
 let opsh = require('opsh');
 let hred = require('./index.js');
 let pkg = require('./package.json');
+let fs = require('fs');
 
 let { stdin, stdout } = process;
 
 // Set of options accepting an argument
-let accepts_optarg = new Set(['u', 'url']);
+let accepts_optarg = new Set(['u', 'url', 'f', 'from']);
 
 // Accumulate options and their arguments on the one hand,
 // and operands, on the other
@@ -41,18 +42,20 @@ Usage: hred [options...]
 
 General options:
 
--h, --help             Print this help message
--V, --version          Print hred version
+-h, --help                Print this help message
+-V, --version             Print hred version
 
 Input options:
 
--u <url>, --url=<url>  Specify base URL for relative HTML attributes
--x, --xml              Parse input as XML rather than HTML
+-u <url>, --url=<url>     Specify base URL for relative HTML attributes
+-x, --xml                 Parse input as XML rather than HTML
+-f <file>, --from=<file>  Read the query from an external file instead of
+                          passing it as an operand.
 
 Output options:
 
--c, --concat           Output array as concatenated JSON records
--r, --raw              Output raw (unquoted) strings
+-c, --concat              Output array as concatenated JSON records
+-r, --raw                 Output raw (unquoted) strings
 
 Examples:
 
@@ -75,7 +78,10 @@ Read the titles and definitions of HTTP response codes from a MDN page:
 	process.exit(0);
 }
 
+let query = opts.f || opts.from ? fs.readFileSync(opts.f || opts.from, 'utf8') : operands[0];
+
 let content = '';
+
 stdin
 	.setEncoding('utf8')
 	.on('readable', () => {
@@ -84,7 +90,7 @@ stdin
 			content += chunk;
 		}
 	}).on('end', () => {
-		let res = hred(content, operands[0] || '^', opts.url || opts.u, (opts.x || opts.xml) ? 'application/xml' : 'text/html'), out;
+		let res = hred(content, query || '^', opts.url || opts.u, (opts.x || opts.xml) ? 'application/xml' : 'text/html'), out;
 		if ((opts.concat || opts.c) && Array.isArray(res)) {
 			out = res.map(it => {
 				if ((opts.raw || opts.r) && typeof it === 'string') {
