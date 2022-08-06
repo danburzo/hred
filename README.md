@@ -30,13 +30,13 @@ hred (**h**tml **red**uce) is a command-line tool to extract data from HTML. It 
 hred runs on Node.js. You can find hred in the npm registry:
 
 ```bash
-# install globally with npm:
+# install hred globally with npm:
 npm install -g hred
 
-# install globally with yarn:
+# install hred globally with yarn:
 yarn global add hred
 
-# run it without installing:
+# run hred without installing it:
 npx hred 
 ```
 
