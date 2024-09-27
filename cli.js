@@ -15,7 +15,7 @@ let opts = {};
 let operands = [];
 opsh(process.argv.slice(2), {
 	option(option, value) {
-		opts[option] = value !== undefined ? option : true;
+		opts[option] = value !== undefined ? value : true;
 	},
 	operand(operand, opt) {
 		if (opt !== undefined && accepts_optarg.has(opt)) {
